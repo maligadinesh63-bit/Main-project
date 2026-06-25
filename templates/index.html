@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Planner Todo App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Left Side Days Panel -->
+        <div class="sidebar">
+            <h2>Weekly Planner</h2>
+            <ul class="day-list">
+                <li onclick="selectDay('Monday')" id="day-Monday">Monday</li>
+                <li onclick="selectDay('Tuesday')" id="day-Tuesday">Tuesday</li>
+                <li onclick="selectDay('Wednesday')" id="day-Wednesday">Wednesday</li>
+                <li onclick="selectDay('Thursday')" id="day-Thursday">Thursday</li>
+                <li onclick="selectDay('Friday')" id="day-Friday">Friday</li>
+                <li onclick="selectDay('Saturday')" id="day-Saturday">Saturday</li>
+                <li onclick="selectDay('Sunday')" id="day-Sunday">Sunday</li>
+            </ul>
+        </div>
+
+        <!-- Right Side Main Planner -->
+        <div class="main-content">
+            <h1 id="selectedDayTitle">Monday Planner</h1>
+
+            <div class="todo-input">
+                <input type="text" id="taskInput" placeholder="Enter task for selected day">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <h3 id="totalTasks">0</h3>
+                    <p>Total</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="completedTasks">0</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="pendingTasks">0</h3>
+                    <p>Pending</p>
+                </div>
+            </div>
+
+            <p id="emptyMessage" class="empty-msg">No tasks for this day</p>
+
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
